@@ -4,24 +4,35 @@
   <div class="container">
     <div class="row">
       <div class="col px-md-5 p-3">
-        <h2>Device Test</h2>
-        <button (click)="onButtonClick()">
-            Click Me
-          </button>
+        <h2>LED Flood Panel 150</h2>
+
       </div>
 
     </div>
     <div class="row">
       <div class="col p-3">
-        <app-slider></app-slider>
+        <app-slider [channelNumber]="1"></app-slider>
       </div>
       <div class="col p-3">
-        <app-slider></app-slider>
+        <app-slider [channelNumber]="2"></app-slider>
       </div>
       <div class="col p-3">
-        <app-slider></app-slider>
+        <app-slider [channelNumber]="3"></app-slider>
       </div>
+
     </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-3 px-md-5 p-3">
+            <button type="button" class="btn btn-block btn-primary" (click)="onButtonClick()">
+                Random Value
+              </button>
+          </div>
+    </div>
+
+
+
+
   </div>
 </div>
 

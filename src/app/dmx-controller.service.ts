@@ -12,6 +12,6 @@ export class DmxControllerService {
   refresh(): Observable<any> {
     console.log('call server');
     return this.http
-      .get<any>(`http://localhost:3000`);
+      .get<any>(`http://192.168.178.37:3000`);
   }
 }

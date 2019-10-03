@@ -10,6 +10,8 @@ import { SliderComponent } from './slider/slider.component';
 import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
 import { HttpClientModule } from '@angular/common/http';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxBootstrapSliderModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

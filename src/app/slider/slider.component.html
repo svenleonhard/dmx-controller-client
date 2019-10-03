@@ -1,16 +1,19 @@
+
+<div class="d-flex justify-content-center">
+    <h6>Channel {{ channelNumber }}</h6>
+  </div>
 <div class="d-flex justify-content-center p-3">
   <mv-slider
     class="vertical"
-    [(value)]="value"
+    [(value)]="dmxValue"
     [min]="1"
     [max]="255"
     [step]="1"
-    [enabled]="enabled"
     [orientation]="'vertical'"
     [tooltip]="'show'"
-    (change)="change()"
   ></mv-slider>
 </div>
 <div class="d-flex justify-content-center">
-  <input class="w-25" type="number" [(value)]="value" />
+  <input class="form-control col-lg-4" type="number" [(ngModel)]="dmxValue" [min]="1"
+  [max]="255"/>
 </div>
