@@ -11,9 +11,10 @@
     [step]="1"
     [orientation]="'vertical'"
     [tooltip]="'show'"
+    (change)="dmxChanged()"
   ></mv-slider>
 </div>
 <div class="d-flex justify-content-center">
   <input class="form-control col-lg-4" type="number" [(ngModel)]="dmxValue" [min]="1"
-  [max]="255"/>
+  [max]="255" (change)="dmxChanged()"/>
 </div>

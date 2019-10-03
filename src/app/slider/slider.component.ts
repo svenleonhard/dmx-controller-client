@@ -17,4 +17,8 @@ export class SliderComponent implements OnInit {
   ngOnInit() {
   }
 
+  dmxChanged() {
+    console.log(this.dmxValue);
+  }
+
 }
