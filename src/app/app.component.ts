@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DmxControllerService } from './dmx-controller.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dmx-controller-client';
+  dmxResponse$: Observable<any>;
+
+  constructor(public controller: DmxControllerService) {}
+
+  onButtonClick() {
+    console.log('button clicked');
+    this.controller.refresh().subscribe();
+  }
 }
