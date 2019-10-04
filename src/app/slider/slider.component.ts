@@ -1,3 +1,4 @@
+import { Channel } from './../channel';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,10 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
 
-  dmxValue = 100;
-
   @Input()
-  channelNumber: number;
+  channel: Channel;
 
   constructor() { }
 
@@ -18,7 +17,7 @@ export class SliderComponent implements OnInit {
   }
 
   dmxChanged() {
-    console.log(this.dmxValue);
+    console.log(this.channel.value);
   }
 
 }

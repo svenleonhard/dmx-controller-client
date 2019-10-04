@@ -1,3 +1,4 @@
+import { Channel } from './channel';
 import { Component } from '@angular/core';
 import { DmxControllerService } from './dmx-controller.service';
 import { Observable } from 'rxjs';
@@ -11,7 +12,13 @@ export class AppComponent {
   title = 'dmx-controller-client';
   dmxResponse$: Observable<any>;
 
-  constructor(public controller: DmxControllerService) {}
+  channels: Array<Channel> = [];
+
+  constructor(public controller: DmxControllerService) {
+    this.channels.push(new Channel('red', 0, 1));
+    this.channels.push(new Channel('green', 0, 2));
+    this.channels.push(new Channel('blue', 0, 3));
+  }
 
   onButtonClick() {
     console.log('button clicked');

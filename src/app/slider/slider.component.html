@@ -1,20 +1,21 @@
 
 <div class="d-flex justify-content-center">
-    <h6>Channel {{ channelNumber }}</h6>
+    <h6>{{ channel.name | titlecase }}</h6>
   </div>
 <div class="d-flex justify-content-center p-3">
   <mv-slider
     class="vertical"
-    [(value)]="dmxValue"
+    [(value)]="channel.value"
     [min]="1"
     [max]="255"
     [step]="1"
     [orientation]="'vertical'"
     [tooltip]="'show'"
     (change)="dmxChanged()"
+    [reversed] = true
   ></mv-slider>
 </div>
-<div class="d-flex justify-content-center">
-  <input class="form-control col-lg-4" type="number" [(ngModel)]="dmxValue" [min]="1"
+<div class="d-flex justify-content-center m-2">
+  <input class="form-control col-lg-4" type="number" [(ngModel)]="channel.value" [min]="1"
   [max]="255" (change)="dmxChanged()"/>
 </div>
