@@ -25,7 +25,9 @@ export class AppComponent {
     this.controller.refresh().subscribe();
   }
 
-  onDmxChanged() {
-    console.log(this.controller.update(this.channels).subscribe());
+  onDmxChanged(channel: Channel) {
+    console.log('changed');
+    console.log(channel);
+    console.log(this.controller.update(channel).subscribe());
   }
 }

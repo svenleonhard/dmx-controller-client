@@ -16,7 +16,9 @@ export class DmxControllerService {
     return this.http.get<any>(this.url);
   }
 
-  update(channels: Channel[]): Observable<any> {
-    return this.http.put<Channel>(this.url, channels);
+  update(channel: Channel): Observable<any> {
+    console.log('send now');
+    console.log(channel);
+    return this.http.put<Channel>(this.url, channel);
   }
 }

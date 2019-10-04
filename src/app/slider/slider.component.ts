@@ -19,8 +19,13 @@ export class SliderComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSliderChanged(sliderValues) {
+    this.channel.value = sliderValues.newValue;
+    this.dmxChanged.emit(this.channel);
+  }
+
   onDmxChanged() {
-    this.dmxChanged.emit();
+    this.dmxChanged.emit(this.channel);
   }
 
 }
