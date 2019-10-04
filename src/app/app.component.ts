@@ -21,13 +21,12 @@ export class AppComponent {
   }
 
   onButtonClick() {
-    console.log('button clicked');
-    this.controller.refresh().subscribe();
+    this.controller.refresh().subscribe(
+      channels => this.channels = channels
+    );
   }
 
   onDmxChanged(channel: Channel) {
-    console.log('changed');
-    console.log(channel);
-    console.log(this.controller.update(channel).subscribe());
+    this.controller.update(channel).subscribe();
   }
 }

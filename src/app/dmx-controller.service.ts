@@ -7,18 +7,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DmxControllerService {
-  url = 'http://192.168.178.37:3000';
+  url = 'http://192.168.178.37:3000/';
 
   constructor(public http: HttpClient) {}
 
   refresh(): Observable<any> {
-    console.log('call server');
     return this.http.get<any>(this.url);
   }
 
   update(channel: Channel): Observable<any> {
-    console.log('send now');
-    console.log(channel);
-    return this.http.put<Channel>(this.url, channel);
+    return this.http.put<any>(this.url, channel);
   }
 }
