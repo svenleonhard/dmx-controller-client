@@ -24,4 +24,8 @@ export class AppComponent {
     console.log('button clicked');
     this.controller.refresh().subscribe();
   }
+
+  onDmxChanged() {
+    console.log(this.controller.update(this.channels).subscribe());
+  }
 }

@@ -1,5 +1,5 @@
 import { Channel } from './../channel';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -9,15 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SliderComponent implements OnInit {
 
   @Input()
-  channel: Channel;
+  public channel: Channel;
+
+  @Output()
+  public dmxChanged = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  dmxChanged() {
-    console.log(this.channel.value);
+  onDmxChanged() {
+    this.dmxChanged.emit();
   }
 
 }

@@ -11,11 +11,11 @@
     [step]="1"
     [orientation]="'vertical'"
     [tooltip]="'show'"
-    (change)="dmxChanged()"
+    (change)="onDmxChanged()"
     [reversed] = true
   ></mv-slider>
 </div>
 <div class="d-flex justify-content-center m-2">
   <input class="form-control col-lg-4" type="number" [(ngModel)]="channel.value" [min]="1"
-  [max]="255" (change)="dmxChanged()"/>
+  [max]="255" (change)="onDmxChanged()"/>
 </div>

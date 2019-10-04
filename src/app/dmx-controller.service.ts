@@ -1,3 +1,4 @@
+import { Channel } from './channel';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -6,12 +7,16 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DmxControllerService {
+  url = 'http://192.168.178.37:3000';
 
-  constructor(public http: HttpClient) { }
+  constructor(public http: HttpClient) {}
 
   refresh(): Observable<any> {
     console.log('call server');
-    return this.http
-      .get<any>(`http://192.168.178.37:3000`);
+    return this.http.get<any>(this.url);
+  }
+
+  update(channels: Channel[]): Observable<any> {
+    return this.http.put<Channel>(this.url, channels);
   }
 }
