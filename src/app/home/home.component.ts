@@ -1,7 +1,7 @@
+import { Device } from './../dto/device';
 import { Component, OnInit } from '@angular/core';
 import { DmxControllerService } from '../dmx-controller.service';
-import { Channel } from '../channel';
-
+import { Channel } from '../dto/channel';
 
 @Component({
   selector: 'app-home',
@@ -9,26 +9,15 @@ import { Channel } from '../channel';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  channels: Array<Channel> = [];
+  devices: Array<Device>;
 
   constructor(public controller: DmxControllerService) {
-    this.channels.push(new Channel('red', 0, 1));
-    this.channels.push(new Channel('green', 0, 2));
-    this.channels.push(new Channel('blue', 0, 3));
+    this.devices = controller.getDeviceList();
   }
 
-  onButtonClick() {
-    this.controller.refresh().subscribe(
-      channels => this.channels = channels
-    );
-  }
+  ngOnInit() {}
 
-  onDmxChanged(channel: Channel) {
-    this.controller.update(channel).subscribe();
+  onRandomButtonClicked(device: Device) {
+    this.controller.refresh().subscribe(channels => (this.devices[device.id].fixture.channels = channels));
   }
-
-  ngOnInit() {
-  }
-
 }

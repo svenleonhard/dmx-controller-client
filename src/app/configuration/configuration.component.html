@@ -15,12 +15,6 @@
     <div class="col-sm-12 col-lg-3 m-1" *ngFor="let device of devices">
         <app-fixture-card *ngIf="device"  [device]="device" (deviceRemoved)="onDeviceRemoved($event)"></app-fixture-card>
     </div>
-
-
-      <!-- <app-fixture-card class="col-sm-12 col-lg-3 m-1" [startAddress]="devices" [fixtureName]="'LED Flood Panel 1'"></app-fixture-card>
-
-      <app-fixture-card class="col-sm-12 col-lg-3 m-1" [startAddress]="20" [fixtureName]="'LED Flood Panel 2'"></app-fixture-card>-->
-
       </div>
   </div>
 

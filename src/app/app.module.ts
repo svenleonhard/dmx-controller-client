@@ -17,6 +17,7 @@ import { environment } from '../environments/environment';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HomeComponent } from './home/home.component';
 import { FixtureCardComponent } from './fixture-card/fixture-card.component';
+import { ControllerDeviceComponent } from './controller-device/controller-device.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FixtureCardComponent } from './fixture-card/fixture-card.component';
     SliderComponent,
     ConfigurationComponent,
     HomeComponent,
-    FixtureCardComponent
+    FixtureCardComponent,
+    ControllerDeviceComponent
   ],
   imports: [
     BrowserModule,

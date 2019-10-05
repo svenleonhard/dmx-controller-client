@@ -1,4 +1,4 @@
-import { Channel } from './../channel';
+import { Channel } from '../dto/channel';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
