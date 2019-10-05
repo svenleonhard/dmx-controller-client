@@ -15,6 +15,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { HomeComponent } from './home/home.component';
+import { FixtureCardComponent } from './fixture-card/fixture-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HomeComponent } from './home/home.component';
     ToolbarComponent,
     SliderComponent,
     ConfigurationComponent,
-    HomeComponent
+    HomeComponent,
+    FixtureCardComponent
   ],
   imports: [
     BrowserModule,

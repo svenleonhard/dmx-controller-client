@@ -1,3 +1,4 @@
+import { Fixture } from './../dto/fixture';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./configuration.component.css']
 })
 export class ConfigurationComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
