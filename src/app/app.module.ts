@@ -8,6 +8,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SliderComponent } from './slider/slider.component';
 
 import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
+import { NgxNavbarModule } from 'ngx-bootstrap-navbar';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
@@ -31,6 +32,7 @@ import { FixtureCardComponent } from './fixture-card/fixture-card.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgxBootstrapSliderModule,
+    NgxNavbarModule,
     HttpClientModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
