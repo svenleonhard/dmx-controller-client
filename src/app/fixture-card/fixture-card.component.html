@@ -1,7 +1,7 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ fixtureName }}</h5>
-    <p class="card-text">Start Address: {{ startAddress }}</p>
-<a href="#" class="btn btn-outline-danger">Remove</a>
+    <h5 class="card-title">{{ device.name }}</h5>
+    <p class="card-text">Start Address: {{ device.startAddress }}</p>
+<button class="btn btn-outline-danger" (click)="onRemove()">Remove</button>
   </div>
 </div>

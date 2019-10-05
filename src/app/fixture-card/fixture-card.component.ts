@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Device } from './../dto/device';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-fixture-card',
@@ -8,14 +9,18 @@ import { Component, OnInit, Input } from '@angular/core';
 export class FixtureCardComponent implements OnInit {
 
   @Input()
-  public fixtureName: string;
+  public device: Device;
 
-  @Input()
-  public startAddress: number;
+  @Output()
+  public deviceRemoved = new EventEmitter<Device>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRemove() {
+    this.deviceRemoved.emit(this.device);
   }
 
 }

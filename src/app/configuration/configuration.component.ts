@@ -1,5 +1,6 @@
-import { Fixture } from './../dto/fixture';
+import { Device } from './../dto/device';
 import { Component, OnInit } from '@angular/core';
+import { DmxControllerService } from '../dmx-controller.service';
 
 @Component({
   selector: 'app-configuration',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./configuration.component.css']
 })
 export class ConfigurationComponent implements OnInit {
-  constructor() { }
+
+  devices: Array<Device>;
+
+  constructor(public controller: DmxControllerService) {
+    this.devices = controller.getDeviceList();
+   }
 
   ngOnInit() {
+  }
+
+  onDeviceRemoved(device: Device) {
+    this.controller.removeDevice(device);
   }
 
 }

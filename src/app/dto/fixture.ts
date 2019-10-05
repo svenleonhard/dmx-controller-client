@@ -1,7 +1,8 @@
 export class Fixture {
   constructor(
     public name: string,
-    public startAddress: number,
+    public manufactor: string,
+    public numberOfChannels: number,
     public id: number
   ) {}
 }
