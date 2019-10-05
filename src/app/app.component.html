@@ -1,42 +1,5 @@
 <app-toolbar></app-toolbar>
 
-<div class="content" role="main">
-  <div class="container">
-    <div class="row">
-      <div class="col px-md-5 p-3">
-        <h2>LED Flood Panel 150</h2>
-
-      </div>
-
-    </div>
-    <div class="row">
-      <div class="col p-3">
-        <app-slider [channel]="channels[0]" (dmxChanged)="onDmxChanged($event)"></app-slider>
-      </div>
-      <div class="col p-3">
-        <app-slider [channel]="channels[1]" (dmxChanged)="onDmxChanged($event)"></app-slider>
-      </div>
-      <div class="col p-3">
-        <app-slider [channel]="channels[2]" (dmxChanged)="onDmxChanged($event)"></app-slider>
-      </div>
-
-    </div>
-
-    <div class="row">
-        <div class="col-12 col-lg-3 px-md-5 p-3">
-            <button type="button" class="btn btn-block btn-primary" (click)="onButtonClick()">
-                Random Value
-              </button>
-          </div>
-    </div>
-
-
-
-
-  </div>
-</div>
-
-
 
 
 <router-outlet></router-outlet>

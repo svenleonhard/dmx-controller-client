@@ -13,12 +13,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { ConfigurationComponent } from './configuration/configuration.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ToolbarComponent,
-    SliderComponent
+    SliderComponent,
+    ConfigurationComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
