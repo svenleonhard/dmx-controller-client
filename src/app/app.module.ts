@@ -11,6 +11,8 @@ import { NgxBootstrapSliderModule } from 'ngx-bootstrap-slider';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     NgxBootstrapSliderModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
