@@ -1,7 +1,7 @@
+import { Channel } from './../dto/channel';
 import { Device } from './../dto/device';
 import { Component, OnInit } from '@angular/core';
 import { DmxControllerService } from '../dmx-controller.service';
-import { Channel } from '../dto/channel';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +18,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onRandomButtonClicked(device: Device) {
-    this.controller.refresh().subscribe(channels => (this.devices[device.id].fixture.channels = channels));
+    this.controller.refresh(device).subscribe(channels => (this.devices[device.id].channels = channels));
+  }
+
+  onDmxChanged(channel: Channel) {
+    console.log(channel);
+    this.controller.update(channel).subscribe();
   }
 }

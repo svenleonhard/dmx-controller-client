@@ -5,6 +5,6 @@ export class Fixture {
     public manufactor: string,
     public numberOfChannels: number,
     public id: number,
-    public channels: Array<Channel>
+    public channelNames: Array<string>
   ) {}
 }

@@ -23,7 +23,7 @@ export class ControllerDeviceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.channels = this.device.fixture.channels;
+    this.channels = this.device.channels;
   }
 
   onButtonClick() {
@@ -32,8 +32,6 @@ export class ControllerDeviceComponent implements OnInit {
 
   onDmxChanged(channel: Channel) {
     this.dmxChanged.emit(channel);
-
-    // this.controller.update(channel).subscribe();
   }
 
 }

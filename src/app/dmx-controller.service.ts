@@ -15,16 +15,26 @@ export class DmxControllerService {
 
   constructor(public http: HttpClient) {
 
-    const channels: Array<Channel> = [];
+    const channels1: Array<Channel> = [];
 
-    channels.push(new Channel('red', 0, 1));
-    channels.push(new Channel('green', 0, 2));
-    channels.push(new Channel('blue', 0, 3));
+    channels1.push(new Channel('red', 0, 1));
+    channels1.push(new Channel('green', 0, 2));
+    channels1.push(new Channel('blue', 0, 3));
 
-    const fixture: Fixture = new Fixture('LED Flood Panel 150', 'Stairville', 3, 0, channels);
+    const channels2: Array<Channel> = [];
 
-    this.controller.push(new Device(fixture, 'LED Flood Panel 1', 1, 0));
-    this.controller.push(new Device(fixture, 'LED Flood Panel 2', 4, 1));
+    channels2.push(new Channel('red', 0, 4));
+    channels2.push(new Channel('green', 0, 5));
+    channels2.push(new Channel('blue', 0, 6));
+
+    const channelNames = [
+      'red, green', 'blue'
+    ];
+
+    const fixture: Fixture = new Fixture('LED Flood Panel 150', 'Stairville', 3, 0, channelNames);
+
+    this.controller.push(new Device(fixture, 'LED Flood Panel 1', 1, 0, channels1));
+    this.controller.push(new Device(fixture, 'LED Flood Panel 2', 4, 1, channels2));
   }
 
   getDeviceList(): Array<Device> {
@@ -35,11 +45,16 @@ export class DmxControllerService {
     delete this.controller[device.id];
   }
 
-  refresh(): Observable<any> {
-    return this.http.get<any>(this.url);
+  generateRandomValues(device: Device): Observable<any> {
+    return this.http.put<any>(this.url + '/random-values', device);
+  }
+
+  refresh(device: Device): Observable<any> {
+    return this.http.put<any>(this.url, device);
   }
 
   update(channel: Channel): Observable<any> {
+    console.log('update channel');
     return this.http.put<any>(this.url, channel);
   }
 }
