@@ -9,8 +9,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ControllerDeviceComponent implements OnInit {
 
-  channels: Array<Channel> = [];
-
   @Input()
   public device: Device;
 
@@ -23,7 +21,6 @@ export class ControllerDeviceComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.channels = this.device.channels;
   }
 
   onButtonClick() {

@@ -17,15 +17,15 @@ export class DmxControllerService {
 
     const channels1: Array<Channel> = [];
 
-    channels1.push(new Channel('red', 0, 1));
-    channels1.push(new Channel('green', 0, 2));
-    channels1.push(new Channel('blue', 0, 3));
+    channels1.push(new Channel('red', 0, 0));
+    channels1.push(new Channel('green', 0, 1));
+    channels1.push(new Channel('blue', 0, 2));
 
     const channels2: Array<Channel> = [];
 
-    channels2.push(new Channel('red', 0, 4));
-    channels2.push(new Channel('green', 0, 5));
-    channels2.push(new Channel('blue', 0, 6));
+    channels2.push(new Channel('red', 0, 3));
+    channels2.push(new Channel('green', 0, 4));
+    channels2.push(new Channel('blue', 0, 5));
 
     const channelNames = [
       'red, green', 'blue'
@@ -46,7 +46,7 @@ export class DmxControllerService {
   }
 
   generateRandomValues(device: Device): Observable<any> {
-    return this.http.put<any>(this.url + '/random-values', device);
+    return this.http.put<any>(this.url + 'random-values', device);
   }
 
   refresh(device: Device): Observable<any> {

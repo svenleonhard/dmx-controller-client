@@ -18,7 +18,11 @@ export class HomeComponent implements OnInit {
   ngOnInit() {}
 
   onRandomButtonClicked(device: Device) {
-    this.controller.refresh(device).subscribe(channels => (this.devices[device.id].channels = channels));
+    this.controller.generateRandomValues(device).subscribe(channels => {
+      console.log(channels);
+      console.log(this.devices[device.id]);
+      this.devices[device.id].channels = channels;
+    });
   }
 
   onDmxChanged(channel: Channel) {

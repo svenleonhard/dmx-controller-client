@@ -7,13 +7,13 @@
   </div>
   <div class="row">
     <div class="col p-3">
-      <app-slider [channel]="channels[0]" (dmxChanged)="onDmxChanged($event)"></app-slider>
+      <app-slider [channel]="device.channels[0]" (dmxChanged)="onDmxChanged($event)"></app-slider>
     </div>
     <div class="col p-3">
-      <app-slider [channel]="channels[1]" (dmxChanged)="onDmxChanged($event)"></app-slider>
+      <app-slider [channel]="device.channels[1]" (dmxChanged)="onDmxChanged($event)"></app-slider>
     </div>
     <div class="col p-3">
-      <app-slider [channel]="channels[2]" (dmxChanged)="onDmxChanged($event)"></app-slider>
+      <app-slider [channel]="device.channels[2]" (dmxChanged)="onDmxChanged($event)"></app-slider>
     </div>
 
   </div>
