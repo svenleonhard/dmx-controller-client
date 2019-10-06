@@ -1,27 +1,25 @@
 <div class="row">
-    <div class="col px-md-5 p-3">
-      <h2>{{ device.name }}</h2>
-
-    </div>
-
+  <div class="col px-md-5 p-3">
+    <h2>{{ device.name }}</h2>
   </div>
-  <div class="row">
-    <div class="col p-3">
-      <app-slider [channel]="device.channels[0]" (dmxChanged)="onDmxChanged($event)"></app-slider>
-    </div>
-    <div class="col p-3">
-      <app-slider [channel]="device.channels[1]" (dmxChanged)="onDmxChanged($event)"></app-slider>
-    </div>
-    <div class="col p-3">
-      <app-slider [channel]="device.channels[2]" (dmxChanged)="onDmxChanged($event)"></app-slider>
-    </div>
-
+</div>
+<div class="row">
+  <div class="col p-3" *ngFor="let channel of device.channels">
+    <app-slider
+      [channel]="channel"
+      (dmxChanged)="onDmxChanged($event)"
+    ></app-slider>
   </div>
+</div>
 
-  <div class="row">
-      <div class="col-12 col-lg-3 px-md-5 p-3">
-          <button type="button" class="btn btn-block btn-primary" (click)="onButtonClick()">
-              Random Value
-            </button>
-        </div>
+<div class="row">
+  <div class="col-12 col-lg-3 px-md-5 p-3">
+    <button
+      type="button"
+      class="btn btn-block btn-primary"
+      (click)="onButtonClick()"
+    >
+      Random Value
+    </button>
   </div>
+</div>
