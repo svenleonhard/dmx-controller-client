@@ -1,5 +1,6 @@
+import { BsModalRef, BsModalService } from 'ngx-bootstrap';
 import { Device } from './../dto/device';
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-fixture-card',
@@ -7,6 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./fixture-card.component.css']
 })
 export class FixtureCardComponent implements OnInit {
+  modalRef: BsModalRef;
 
   @Input()
   public device: Device;
@@ -14,13 +16,16 @@ export class FixtureCardComponent implements OnInit {
   @Output()
   public deviceRemoved = new EventEmitter<Device>();
 
-  constructor() { }
+  constructor(private modalService: BsModalService) {}
 
-  ngOnInit() {
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
+
+  ngOnInit() {}
 
   onRemove() {
     this.deviceRemoved.emit(this.device);
+    this.modalRef.hide();
   }
-
 }

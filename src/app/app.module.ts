@@ -18,6 +18,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { HomeComponent } from './home/home.component';
 import { FixtureCardComponent } from './fixture-card/fixture-card.component';
 import { ControllerDeviceComponent } from './controller-device/controller-device.component';
+import { ModalModule } from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ControllerDeviceComponent } from './controller-device/controller-device
     BrowserAnimationsModule,
     NgxBootstrapSliderModule,
     NgxNavbarModule,
+    ModalModule.forRoot(),
     HttpClientModule,
     FormsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
