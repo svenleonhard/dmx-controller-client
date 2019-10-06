@@ -1,7 +1,9 @@
 <div class="content" role="main">
   <div class="container">
 
-    <app-controller-device *ngFor="let device of devices" [device]="device" (randomButtonClicked)="onRandomButtonClicked($event)" (dmxChanged)="onDmxChanged($event)"></app-controller-device>
+    <div *ngFor="let device of devices">
+      <app-controller-device *ngIf="device" [device]="device" (randomButtonClicked)="onRandomButtonClicked($event)" (dmxChanged)="onDmxChanged($event)"></app-controller-device>
+    </div>
 
 
 
