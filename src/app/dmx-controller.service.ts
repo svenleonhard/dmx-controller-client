@@ -12,6 +12,7 @@ export class DmxControllerService {
   url = 'http://192.168.178.37:3000/';
 
   controller: Array<Device> = [];
+  fixtures: Array<Fixture> = [];
 
   constructor(public http: HttpClient) {
 
@@ -33,16 +34,31 @@ export class DmxControllerService {
 
     const fixture: Fixture = new Fixture('LED Flood Panel 150', 'Stairville', 3, 0, channelNames);
 
+    this.fixtures.push(fixture);
+    this.fixtures.push(new Fixture('LED Flood Panel 150 40 deg', 'Stairville', 3, 0, channelNames));
+    
     this.controller.push(new Device(fixture, 'LED Flood Panel 1', 1, 0, channels1));
     this.controller.push(new Device(fixture, 'LED Flood Panel 2', 4, 1, channels2));
+  }
+
+  getFixtureList(): Array<Fixture> {
+    return this.fixtures;
   }
 
   getDeviceList(): Array<Device> {
     return this.controller;
   }
 
+  addDevice(fixtureName: string, deviceName: string) {
+    const fixture: Fixture = this.fixtures.find(fixture => fixture.name = fixtureName);
+    const newDevice = new Device(fixture, deviceName, 0, 0, []);
+    this.controller.push(newDevice);
+    return this.controller;
+  }
+
   removeDevice(device: Device) {
-    delete this.controller[device.id];
+    this.controller.splice(device.id, 1);
+    return this.controller;
   }
 
   generateRandomValues(device: Device): Observable<any> {
