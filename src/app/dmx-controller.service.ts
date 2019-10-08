@@ -16,20 +16,8 @@ export class DmxControllerService {
 
   constructor(public http: HttpClient) {
 
-    const channels1: Array<Channel> = [];
-
-    channels1.push(new Channel('red', 0, 0));
-    channels1.push(new Channel('green', 0, 1));
-    channels1.push(new Channel('blue', 0, 2));
-
-    const channels2: Array<Channel> = [];
-
-    channels2.push(new Channel('red', 0, 3));
-    channels2.push(new Channel('green', 0, 4));
-    channels2.push(new Channel('blue', 0, 5));
-
     const channelNames = [
-      'red, green', 'blue'
+      'red', 'green', 'blue'
     ];
 
     const fixture: Fixture = new Fixture('LED Flood Panel 150', 'Stairville', 3, 0, channelNames);
@@ -37,8 +25,8 @@ export class DmxControllerService {
     this.fixtures.push(fixture);
     this.fixtures.push(new Fixture('LED Flood Panel 150 40 deg', 'Stairville', 3, 0, channelNames));
     
-    this.controller.push(new Device(fixture, 'LED Flood Panel 1', 1, 0, channels1));
-    this.controller.push(new Device(fixture, 'LED Flood Panel 2', 4, 1, channels2));
+    this.controller.push(new Device(fixture, 'LED Flood Panel 1', 1, 0));
+    this.controller.push(new Device(fixture, 'LED Flood Panel 2', 4, 1));
   }
 
   getFixtureList(): Array<Fixture> {
@@ -51,9 +39,14 @@ export class DmxControllerService {
 
   addDevice(fixtureName: string, deviceName: string) {
     const fixture: Fixture = this.fixtures.find(fixture => fixture.name = fixtureName);
-    const newDevice = new Device(fixture, deviceName, 0, 0, []);
+    const newDevice = new Device(fixture, deviceName, this.getStartAddress(), 0);
     this.controller.push(newDevice);
     return this.controller;
+  }
+
+  getStartAddress(): number {
+    const lastDevice = this.controller[this.controller.length - 1];
+    return lastDevice.getNextAddress();
   }
 
   removeDevice(device: Device) {
